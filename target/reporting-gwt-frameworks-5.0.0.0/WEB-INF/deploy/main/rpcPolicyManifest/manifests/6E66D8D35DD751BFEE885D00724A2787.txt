@@ -1,2 +1,0 @@
-serviceClass: com.medassets.report.client.service.StandardService
-path: ACFA1F6D84D5AB2FB5EA1867135F82E8.gwt.rpc

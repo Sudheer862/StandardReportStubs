@@ -1,2 +1,0 @@
-serviceClass: com.medassets.report.client.service.FlexService
-path: 7A2F751F5AD83B7445D90FEBA0F6D583.gwt.rpc

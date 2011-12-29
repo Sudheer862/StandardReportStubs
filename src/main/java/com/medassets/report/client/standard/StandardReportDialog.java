@@ -205,7 +205,7 @@ public class StandardReportDialog extends FlowPanel implements ResizeHandler {
 
 
                         List<ParamAvailableItemValue> storedValues = new ArrayList<ParamAvailableItemValue>();
-
+                          dto.setaValueList(dto.getaValue());
                         for (String val : dto.getaValueList()) {
                             ParamAvailableItemValue pai = new ParamAvailableItemValue();
                             pai.setCode(val);
