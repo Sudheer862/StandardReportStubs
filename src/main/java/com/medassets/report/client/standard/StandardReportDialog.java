@@ -624,7 +624,8 @@ public class StandardReportDialog extends FlowPanel implements ResizeHandler {
 
                 public void onSuccess(Void aVoid) {
                     GWT.log("Run succeeded. Session should contain crystal obj");
-                    openReport("Standard Report", "/StandardReportCrystalViewer.jsp");
+                    //openReport("Standard Report", "/StandardReportCrystalViewer.jsp");
+                    openReport("Standard Report", "Test2.pdf");
                 }
             });
     }

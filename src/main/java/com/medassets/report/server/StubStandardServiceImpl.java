@@ -1,13 +1,20 @@
 package com.medassets.report.server;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import com.lowagie.text.Document;
 
+import com.lowagie.text.Paragraph;
+import com.lowagie.text.pdf.PdfWriter;
 import com.medassets.report.library.domain.ReportDTO;
+import com.medassets.report.shared.ReportItemDTO;
 import com.medassets.report.shared.StandardParamItemDTO;
 import com.medassets.report.shared.StandardRptInstanceSupportItemDTO;
 import com.medassets.report.standard.domain.ParamAvailableValue;
@@ -120,17 +127,17 @@ public class StubStandardServiceImpl {
 			reports[i].setCategory("General Reports");
 		else
 			reports[i].setCategory("Profitability and Utilization");
-		if(j==0)
-		reports[i].setFolderName("Andrew");
-		if(j==1)
+		if (j == 0)
+			reports[i].setFolderName("Andrew");
+		if (j == 1)
 			reports[i].setFolderName("General");
-		if(j==2)
+		if (j == 2)
 			reports[i].setFolderName("Joseph");
-		if(j==3)
+		if (j == 3)
 			reports[i].setFolderName("Mike");
-		if(j==4)
+		if (j == 4)
 			reports[i].setFolderName("Susan");
-		if(j==5)
+		if (j == 5)
 			reports[i].setFolderName("Tom");
 		reports[i].setName(reportInstanceName);
 
@@ -146,6 +153,22 @@ public class StubStandardServiceImpl {
 		reports[i].setModifiedDate(new Date());
 		i++;
 
+	}
+
+	public static void updateReport(String reportInstanceName,
+			List<StandardParamItemDTO> standardParamDTOList,
+			StandardRptInstanceSupportItemDTO supportDTO) {
+		StandardParamItemDTO dto;
+		ArrayList<StandardParamItemDTO> list = new ArrayList<StandardParamItemDTO>();
+		Iterator<StandardParamItemDTO> set = standardParamDTOList.iterator();
+
+		while (set.hasNext()) {
+
+			dto = set.next();
+			// dto.setReportInstanceID((long) j);
+			list.add(dto);
+		}
+		updateMap.put((long) supportDTO.getInstanceID(), list);
 	}
 
 	public List<ParamAvailableValue> getAvailableValuesForCBOorLIST(
@@ -170,4 +193,69 @@ public class StubStandardServiceImpl {
 		return result;
 	}
 
+	public static void runStandardReport(ReportItemDTO reportItemDTO,
+			List<StandardParamItemDTO> dtoList) {
+		String s[] = new String[dtoList.size()];
+		int i = 0;
+		for (StandardParamItemDTO dto : dtoList) {
+
+			s[i++] = dto.getaValue();
+			
+
+		}
+		try {
+			OutputStream file = new FileOutputStream(
+					new File(
+							"D:\\MedAssets\\POC's\\standardReports\\reporting-gwt-frameworks\\src\\main\\webapp\\war\\reporting\\Test2.pdf"));
+
+			Document document = new Document();
+			PdfWriter.getInstance(document, file);
+			document.open();
+			
+			document.add(new Paragraph("Nisum Technologies"));
+		    document.add(new Paragraph(new Date().toString()));
+			document.add(new Paragraph("   "));
+			document.add(new Paragraph("   "));
+			document.add(new Paragraph("Report Template Type : "+reportItemDTO.getCategory()));
+			document.add(new Paragraph("Report Name :"+reportItemDTO.getName()));
+			
+			document.add(new Paragraph("   "));
+
+			Paragraph ph = new Paragraph();
+			ph.setAlignment(100);
+			ph.add("Consumer Id or ALL  :");
+			ph.add(s[0]);
+			document.add(ph);
+			ph = new Paragraph();
+			ph.add("Zip codes  :");
+			ph.add(s[1]);
+			document.add(ph);
+			ph = new Paragraph();
+			ph.add("Age Range  :");
+			ph.add(s[2]);
+			document.add(ph);
+			ph = new Paragraph();
+			ph.add("to  :");
+			ph.add(s[3]);
+			document.add(ph);
+			ph = new Paragraph();
+			ph.add("Gender  :");
+			ph.add(s[4]);
+			document.add(ph);
+			ph = new Paragraph();
+			ph.add("Ethinicity  :");
+			ph.add(s[5]);
+			document.add(ph);
+			ph = new Paragraph();
+			ph.add("Consumer History Reference Date  :");
+			ph.add(s[6]);
+			document.add(ph);
+
+			document.close();
+			file.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}
 }

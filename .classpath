@@ -18,5 +18,7 @@
 	</classpathentry>
 	<classpathentry kind="lib" path="D:/Eclipse gelilio/geliloeclipse/plugins/com.google.gwt.eclipse.sdkbundle_2.4.0.relr35v201110112027/gwt-2.4.0/validation-api-1.0.0.GA-sources.jar"/>
 	<classpathentry kind="lib" path="D:/Eclipse gelilio/geliloeclipse/plugins/com.google.gwt.eclipse.sdkbundle_2.4.0.relr35v201110112027/gwt-2.4.0/validation-api-1.0.0.GA.jar" sourcepath="D:/Eclipse gelilio/geliloeclipse/plugins/com.google.gwt.eclipse.sdkbundle_2.4.0.relr35v201110112027/gwt-2.4.0/validation-api-1.0.0.GA-sources.jar"/>
+	<classpathentry kind="lib" path="C:/Documents and Settings/stupilli/.m2/repository/crystal/rasapp/12.3.0.601/rasapp-12.3.0.601.jar"/>
+	<classpathentry kind="lib" path="C:/Documents and Settings/stupilli/.m2/repository/crystal/rascore/12.3.0.601/rascore-12.3.0.601.jar"/>
 	<classpathentry kind="output" path="target/reporting-gwt-frameworks-5.0.0.0/WEB-INF/classes"/>
 </classpath>

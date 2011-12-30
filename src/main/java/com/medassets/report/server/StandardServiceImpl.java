@@ -10,7 +10,6 @@ import com.avega.security.SecurityManager;
 import com.avega.util.SpringBeanLocator;
 import com.crystaldecisions.sdk.occa.report.application.ReportClientDocument;
 import com.crystaldecisions.sdk.occa.report.lib.ReportSDKException;
-
 import com.google.gwt.user.server.rpc.RemoteServiceServlet;
 import com.medassets.report.client.service.StandardService;
 import com.medassets.report.crystal.common.CrystalViewerSupportDTO;
@@ -279,6 +278,11 @@ public class StandardServiceImpl extends RemoteServiceServlet implements
 	public void updateStandardReportInstance(
 			List<StandardParamItemDTO> standardParamDTOList,
 			StandardRptInstanceSupportItemDTO supportDTO) {
+		if(USE_MOCK_DATA==true){
+			StubStandardServiceImpl.updateReport("reportInstanceName",
+					standardParamDTOList, supportDTO);
+		}
+		else{
 		// Getting the current logged user info who modified the instance.
 		String user = libraryDAO.getUserDisplayName();
 		supportDTO.setModifyingUser(user);
@@ -290,7 +294,7 @@ public class StandardServiceImpl extends RemoteServiceServlet implements
 		StandardRptInstanceSupportDTO instanceSupportDTO = toDTO(supportDTO);
 		// Calling the database to update the instance with changes.
 		reportInstanceParamDAO.updateStandardReportInstance(instanceSupportDTO,
-				list);
+				list);}
 	}
 
 	private StandardRptInstanceSupportDTO toDTO(
@@ -314,23 +318,29 @@ public class StandardServiceImpl extends RemoteServiceServlet implements
 
 		voidSessionCloseDocument();
 		CrystalViewerSupportDTO crystalViewerSupportDTO = new CrystalViewerSupportDTO();
-		crystalViewerSupportDTO.setPassword(SecurityManager.getInstance()
-				.getUser().getAdsPassword());
-		crystalViewerSupportDTO.setUser(SecurityManager.getInstance().getUser()
-				.getAdsUserName());
-		crystalViewerSupportDTO.setReportTemplateID(reportItemDTO
-				.getReportTemplateId());
-
+		
+		if(USE_MOCK_DATA){
+		StubStandardServiceImpl.runStandardReport(reportItemDTO,dtoList);
+		}
+		else{
+			crystalViewerSupportDTO.setPassword(SecurityManager.getInstance().getUser().getAdsPassword());
+			crystalViewerSupportDTO.setUser(SecurityManager.getInstance().getUser().getAdsUserName());
+		
+		crystalViewerSupportDTO.setReportTemplateID(reportItemDTO.getReportTemplateId());
 		List<StandardParamDTO> parmList = new ArrayList<StandardParamDTO>();
 		for (StandardParamItemDTO dto : dtoList) {
 			parmList.add(toDTO(dto));
 		}
-
+		
+		
+		
 		ReportClientDocument rdc = crystalViewerService.runStandardReport(
 				parmList, crystalViewerSupportDTO);
 
 		this.getThreadLocalRequest().getSession()
 				.setAttribute("clientdoc", rdc);
+		}
+		
 	}
 
 	@Override

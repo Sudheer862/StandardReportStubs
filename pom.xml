@@ -1,192 +1,201 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project
-        xmlns="http://maven.apache.org/POM/4.0.0"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
-    <parent>
-        <groupId>avega</groupId>
-        <artifactId>avegasoft</artifactId>
-        <version>5.0.0.0</version>
-        <relativePath>../../pom.xml</relativePath>
-    </parent>
+	<parent>
+		<groupId>avega</groupId>
+		<artifactId>avegasoft</artifactId>
+		<version>5.0.0.0</version>
+		<relativePath>../../pom.xml</relativePath>
+	</parent>
 
-    <modelVersion>4.0.0</modelVersion>
-    <groupId>avega</groupId>
-    <artifactId>reporting-gwt-frameworks</artifactId>
-    <packaging>war</packaging>
-    <version>5.0.0.0</version>
-    <name>Alliance GWT Reporting</name>
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>avega</groupId>
+	<artifactId>reporting-gwt-frameworks</artifactId>
+	<packaging>war</packaging>
+	<version>5.0.0.0</version>
+	<name>Alliance GWT Reporting</name>
 
-    <properties>
-        <!-- GWT needs at least java 1.5 -->
-        <webappDirectory>${project.build.directory}/${project.build.finalName}</webappDirectory>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    </properties>
+	<properties>
+		<!-- GWT needs at least java 1.5 -->
+		<webappDirectory>${project.build.directory}/${project.build.finalName}</webappDirectory>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
 
-    <dependencies>
-        <!-- Avega Dependencies -->
-        <dependency>
-            <groupId>avega</groupId>
-            <artifactId>common-classes</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>avega</groupId>
-            <artifactId>domain-classes</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>avega</groupId>
-            <artifactId>rpt_engine</artifactId>
-        </dependency>
-        <!-- End Avega Dependencies -->
+	<dependencies>
+		<!-- Avega Dependencies -->
+		<dependency>
+			<groupId>avega</groupId>
+			<artifactId>common-classes</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>avega</groupId>
+			<artifactId>domain-classes</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>avega</groupId>
+			<artifactId>rpt_engine</artifactId>
+		</dependency>
+		<!-- End Avega Dependencies -->
 
-        <!-- only one of these needed! -->
-        <dependency>
-            <groupId>crystal</groupId>
-            <artifactId>rasapp</artifactId>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>crystal</groupId>
-            <artifactId>rascore</artifactId>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>crystal</groupId>
-            <artifactId>reporttemplate</artifactId>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>crystal</groupId>
-            <artifactId>serialization</artifactId>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.google.gwt</groupId>
-            <artifactId>gwt-servlet</artifactId>
-            <scope>runtime</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.google.gwt</groupId>
-            <artifactId>gwt-user</artifactId>
-            <version>${gwt-version}</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>javax.validation</groupId>
-            <artifactId>validation-api</artifactId>
-            <version>1.0.0.GA</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>javax.validation</groupId>
-            <artifactId>validation-api</artifactId>
-            <version>1.0.0.GA</version>
-            <classifier>sources</classifier>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>log4j</groupId>
-            <artifactId>log4j</artifactId>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.mockito</groupId>
-            <artifactId>mockito-core</artifactId>
-            <scope>test</scope>
-        </dependency>
-    </dependencies>
+		<!-- only one of these needed! -->
+		<dependency>
+			<groupId>crystal</groupId>
+			<artifactId>rasapp</artifactId>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>crystal</groupId>
+			<artifactId>rascore</artifactId>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>crystal</groupId>
+			<artifactId>reporttemplate</artifactId>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>crystal</groupId>
+			<artifactId>serialization</artifactId>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.google.gwt</groupId>
+			<artifactId>gwt-servlet</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.google.gwt</groupId>
+			<artifactId>gwt-user</artifactId>
+			<version>${gwt-version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.validation</groupId>
+			<artifactId>validation-api</artifactId>
+			<version>1.0.0.GA</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.validation</groupId>
+			<artifactId>validation-api</artifactId>
+			<version>1.0.0.GA</version>
+			<classifier>sources</classifier>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-core</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.lowagie</groupId>
+			<artifactId>itext</artifactId>
+			<version>1.4.8</version>
+		</dependency>
+	</dependencies>
 
-    <build>
-        <!-- Generate compiled stuff in the folder used for developing mode -->
-        <outputDirectory>${webappDirectory}/WEB-INF/classes</outputDirectory>
+	<build>
+		<!-- Generate compiled stuff in the folder used for developing mode -->
+		<outputDirectory>${webappDirectory}/WEB-INF/classes</outputDirectory>
 
-        <plugins>
-            <!-- GWT Maven Plugin -->
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>gwt-maven-plugin</artifactId>
-                <version>2.3.0-1</version>
-                <dependencies>
-                    <dependency>
-                        <groupId>com.google.gwt</groupId>
-                        <artifactId>gwt-user</artifactId>
-                        <version>${gwt-version}</version>
-                    </dependency>
-                    <dependency>
-                        <groupId>com.google.gwt</groupId>
-                        <artifactId>gwt-dev</artifactId>
-                        <version>${gwt-version}</version>
-                    </dependency>
-                </dependencies>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>generateAsync</goal>
-                            <goal>compile</goal>
-                            <goal>test</goal>
-                            <!--<goal>i18n</goal>-->
-
-                        </goals>
-                    </execution>
-                </executions>
-                <!-- Plugin configuration. There are many available options, see
-            gwt-maven-plugin documentation at codehaus.org -->
-                <configuration>
-                    <runTarget>/reportingdev/flexselectionstubs.html</runTarget>
-                    <!--<hostedWebapp>${webappDirectory}</hostedWebapp>-->
-                    <!--<i18nMessagesBundle>avega.gwt.client.Messages</i18nMessagesBundle>-->
-                </configuration>
-            </plugin>
-
-            <!-- Copy static web files before executing gwt:run -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-war-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <phase>compile</phase>
-                        <goals>
-                            <goal>exploded</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <webappDirectory>${webappDirectory}</webappDirectory>
-                    <warSourceDirectory>${project.basedir}/src/main/webapp</warSourceDirectory>
-                </configuration>
-            </plugin>
+		<plugins>
+			<!-- GWT Maven Plugin -->
 			<plugin>
-                <artifactId>maven-antrun-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>run</goal>
-                        </goals>
-                        <configuration>
-                            <tasks>
-                                <copy todir="${project.basedir}/../../target/alliance5.ear/alliance-web-5.0.0.0.war">
-                                    <fileset  dir="${project.build.directory}/${project.artifactId}-${project.parent.version}">
-                                        <exclude name="**/*.java"/>
-                                        <exclude name="**/web.xml"/>
-                                        <exclude name="**/lib/**"/>
-                                        <exclude name="**/deploy/**"/>
-                                    </fileset>   
-                                </copy>
-                            </tasks>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>gwt-maven-plugin</artifactId>
+				<version>2.3.0-1</version>
+				<dependencies>
+					<dependency>
+						<groupId>com.google.gwt</groupId>
+						<artifactId>gwt-user</artifactId>
+						<version>${gwt-version}</version>
+					</dependency>
+					<dependency>
+						<groupId>com.google.gwt</groupId>
+						<artifactId>gwt-dev</artifactId>
+						<version>${gwt-version}</version>
+					</dependency>
+				</dependencies>
+				<executions>
+					<execution>
+						<goals>
+							<goal>generateAsync</goal>
+							<goal>compile</goal>
+							<goal>test</goal>
+							<!--<goal>i18n</goal>-->
+
+						</goals>
+					</execution>
+				</executions>
+				<!--
+					Plugin configuration. There are many available options, see
+					gwt-maven-plugin documentation at codehaus.org
+				-->
+				<configuration>
+					<runTarget>/reportingdev/flexselectionstubs.html</runTarget>
+					<!--<hostedWebapp>${webappDirectory}</hostedWebapp>-->
+					<!--
+						<i18nMessagesBundle>avega.gwt.client.Messages</i18nMessagesBundle>
+					-->
+				</configuration>
+			</plugin>
+
+			<!-- Copy static web files before executing gwt:run -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<executions>
+					<execution>
+						<phase>compile</phase>
+						<goals>
+							<goal>exploded</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<webappDirectory>${webappDirectory}</webappDirectory>
+					<warSourceDirectory>${project.basedir}/src/main/webapp</warSourceDirectory>
+				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>run</goal>
+						</goals>
+						<configuration>
+							<tasks>
+								<copy
+									todir="${project.basedir}/../../target/alliance5.ear/alliance-web-5.0.0.0.war">
+									<fileset
+										dir="${project.build.directory}/${project.artifactId}-${project.parent.version}">
+										<exclude name="**/*.java" />
+										<exclude name="**/web.xml" />
+										<exclude name="**/lib/**" />
+										<exclude name="**/deploy/**" />
+									</fileset>
+								</copy>
+							</tasks>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
 
 
-        </plugins>
-    </build>
+		</plugins>
+	</build>
 
 </project>
